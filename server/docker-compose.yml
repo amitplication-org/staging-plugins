@@ -6,7 +6,7 @@ services:
       args:
         NPM_LOG_LEVEL: notice
     ports:
-      - ${SERVER_PORT}:3000
+      - ${PORT}:3000
     environment:
       BCRYPT_SALT: ${BCRYPT_SALT}
       JWT_SECRET_KEY: ${JWT_SECRET_KEY}
@@ -40,8 +40,6 @@ services:
       - ${DB_PORT}:3306
     environment:
       DB_ROOT_PASSWORD: ${DB_PASSWORD}
-    volumes:
-      - mysql:/var/lib/mysql/data
     healthcheck:
       test:
         - CMD
